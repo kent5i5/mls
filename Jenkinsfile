@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("Lint JAVA"){
             steps {
-                sh "tidy -q -e *.java"
+                sh "java --version"
             }
         }
 
