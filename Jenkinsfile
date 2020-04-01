@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("Lint JAVA"){
             steps {
-                sh "java --version"
+                sh "java -version"
             }
         }
 
