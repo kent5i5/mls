@@ -33,3 +33,4 @@ build/
 #other files
 run_docker.sh
 upload_docker.sh
+upload_aws.sh
