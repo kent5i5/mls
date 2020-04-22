@@ -20,12 +20,8 @@ pipeline {
         }
 
         stage('Build image') {
-            // agent {
-            //     dockerfile true 
-            // }
             steps {
-                // withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']])
-                sh '''docker image ls
+                sh '''docker build -tag mls:1.0 .
                 '''
                 // script {
                 //     docker.build registry + ":$BUILD_NUMBER"
@@ -35,7 +31,7 @@ pipeline {
 
         stage('Push image') {
             steps {
-                sh 'docker push 168180329753.dkr.ecr.us-west-2.amazonaws.com/mls:latest'
+                sh 'docker push yinkin/mls:latest'
             }
         }
 
