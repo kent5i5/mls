@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        registry = "https://hub.docker.com/repository/docker/yinkin/udacity"
+        registry = "yinkin/udacity"
         registryCredential = 'dockerhub'
     }
     agent any
