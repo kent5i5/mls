@@ -21,7 +21,9 @@ pipeline {
 
         stage('Build image') {
             steps {
-                sh '''docker build -tag mls:1.0 .
+                sh 'git clone https://github.com/kent5i5/mls.git'
+                sh 'cd mls'
+                sh '''docker build -tag yinkin/mls:1.0 .
                 '''
                 // script {
                 //     docker.build registry + ":$BUILD_NUMBER"
@@ -43,7 +45,7 @@ pipeline {
 
         // stage('Deploy container') {
         //     steps{
-                    
+
         //     }
         // }
     }
