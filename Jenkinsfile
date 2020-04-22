@@ -32,12 +32,11 @@ pipeline {
             }
         }
 
-        stage('Push image') {
-            steps {
-                sh 'docker login'
-                sh 'docker push yinkin/mls:latest'
-            }
-        }
+        // stage('Push image') {
+        //     steps {
+        //         sh 'docker push yinkin/mls:latest'
+        //     }
+        // }
 
         stage('set current kubectl context') {
             steps{
