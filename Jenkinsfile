@@ -17,7 +17,7 @@ pipeline {
 
         stage('Build image') {
             steps{
-                sh 'sudo docker build --tag=mls .'
+                sh 'docker build --tag=mls .'
             }
         }
 
