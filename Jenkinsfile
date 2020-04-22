@@ -17,8 +17,8 @@ pipeline {
 
         stage('Build image') {
             steps{
-                sh "aws ecr get-login --region us-west-2 --no-include-email; sudo sh"
-                sh 'docker build --tag=mls .'
+                sh "sudo docker image ls"
+                sh 'docker build --tag=168180329753.dkr.ecr.us-west-2.amazonaws.com/mls .'
             }
         }
 
