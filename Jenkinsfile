@@ -35,15 +35,15 @@ pipeline {
             }
         }
 
-        // stage('set current kubectl context') {
-        //     steps{
-
-        //     }
-        // }
+        stage('set current kubectl context') {
+            steps{
+                sh 'eksctl version'
+            }
+        }
 
         // stage('Deploy container') {
         //     steps{
-
+                    
         //     }
         // }
     }
