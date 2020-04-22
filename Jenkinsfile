@@ -1,4 +1,8 @@
 pipeline {
+    environment {
+        registry = "https://hub.docker.com/repository/docker/yinkin/udacity"
+        registryCredential = 'dockerhub'
+    }
     agent any
     stages {
         stage("Lint JAVA"){
@@ -21,8 +25,11 @@ pipeline {
             }
             steps {
                 // withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']])
-                sh '''docker build --tag=168180329753.dkr.ecr.us-west-2.amazonaws.com/mls .
-                '''
+                // sh '''docker build --tag=168180329753.dkr.ecr.us-west-2.amazonaws.com/mls .
+                // '''
+                script {
+                    docker.build registry + ":$BUILD_NUMBER"
+                }
             }
         }
 
