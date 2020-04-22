@@ -20,16 +20,16 @@ pipeline {
         }
 
         stage('Build image') {
-            agent {
-                dockerfile true 
-            }
+            // agent {
+            //     dockerfile true 
+            // }
             steps {
                 // withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']])
-                // sh '''docker build --tag=168180329753.dkr.ecr.us-west-2.amazonaws.com/mls .
-                // '''
-                script {
-                    docker.build registry + ":$BUILD_NUMBER"
-                }
+                sh '''docker image ls
+                '''
+                // script {
+                //     docker.build registry + ":$BUILD_NUMBER"
+                // }
             }
         }
 
