@@ -17,6 +17,7 @@ pipeline {
 
         stage('Build image') {
             steps{
+                sh "aws ecr get-login --region us-west-2 --no-include-email; sudo sh"
                 sh 'docker build --tag=mls .'
             }
         }
