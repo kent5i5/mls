@@ -34,6 +34,7 @@ pipeline {
 
         stage('Push image') {
             steps {
+                sh 'docker login'
                 sh 'docker push yinkin/mls:latest'
             }
         }
