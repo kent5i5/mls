@@ -17,14 +17,14 @@ pipeline {
 
         stage('Build image') {
             steps{
-                sh "sudo docker image ls"
-                sh 'docker build --tag=168180329753.dkr.ecr.us-west-2.amazonaws.com/mls .'
+                sh '''sudo docker build --tag=168180329753.dkr.ecr.us-west-2.amazonaws.com/mls .
+                '''
             }
         }
 
         stage('Push image') {
             steps {
-                sh 'docker push 168180329753.dkr.ecr.us-west-2.amazonaws.com/mls:latest'
+                sh 'sudo docker push 168180329753.dkr.ecr.us-west-2.amazonaws.com/mls:latest'
             }
         }
 
