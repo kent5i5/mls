@@ -42,7 +42,7 @@ pipeline {
         stage('set current kubectl context') {
             steps{
                 sh 'eksctl version'
-                sh 'kubectl config use-context arn:aws:eks:us-west-2:168180329753:cluster/prod'
+                sh 'kubectl config set-clusters arn:aws:eks:us-west-2:168180329753:cluster/prod'
             }
         }
 
