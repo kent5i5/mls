@@ -27,16 +27,16 @@ pipeline {
             }
         }
 
-        stage('set current kubectl context') {
-            steps{
-                
-            }
-        }
+        // stage('set current kubectl context') {
+        //     steps{
 
-        stage('Deploy container') {
-            steps{
+        //     }
+        // }
 
-            }
-        }
+        // stage('Deploy container') {
+        //     steps{
+
+        //     }
+        // }
     }
 }
