@@ -16,6 +16,9 @@ pipeline {
         }
 
         stage('Build image') {
+            agent {
+                dockerfile true 
+            }
             steps{
                 sh '''docker build --tag=168180329753.dkr.ecr.us-west-2.amazonaws.com/mls .
                 '''
