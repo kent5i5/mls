@@ -28,6 +28,7 @@ pipeline {
                 sh 'cd mls'
                 sh '''docker build -tag mls:latest .
                 '''
+                sh 'docker image ls'
                 
                 script {
                     docker.build registry + ":$BUILD_NUMBER"
