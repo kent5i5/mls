@@ -20,20 +20,22 @@ pipeline {
         }
 
         stage('Build image') {
-            steps {
-                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'Username', passwordVariable: 'Password']])
-                // sh 'docker image ls'  
-                sh 'ls'
-                sh 'docker image ls'
-                //sh 'git clone https://github.com/kent5i5/mls.git'
-                sh 'cd mls'
+            steps { 
+                // sh 'ls'
+                // sh 'docker image ls'
+                // sh 'git clone https://github.com/kent5i5/mls.git'
+                // sh 'cd mls'
                 
-                sh '''docker build -tag mls:latest .
-                '''
+                // sh '''docker build -tag mls:latest .
+                // '''
                 
                 
-                script {
-                    docker.build registry + ":$BUILD_NUMBER"
+                // script {
+                //     docker.build registry + ":$BUILD_NUMBER"
+                // }
+
+                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]){
+                    sh 'docker image ls'
                 }
             }
         }
