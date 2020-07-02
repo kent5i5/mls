@@ -35,8 +35,11 @@ pipeline {
                 // }
 
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]){
+                    // sh '''
+                    // docker image ls'''
+
                     sh '''
-                    docker image ls'''
+                    docker.build registry + ":$BUILD_NUMBER"'''
                 }
             }
         }
