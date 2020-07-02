@@ -21,7 +21,7 @@ pipeline {
 
         stage('Build image') {
             steps {
-                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']])
+                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'Username', passwordVariable: 'Password']])
                 // sh 'docker image ls'  
                 sh 'ls'
                 sh 'docker image ls'
