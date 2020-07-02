@@ -39,7 +39,7 @@ pipeline {
                     // docker image ls'''
 
                     sh '''
-                    docker.build registry + ":$BUILD_NUMBER"'''
+                    docker build -t yinkin/mls:$BUILD_ID .'''
                 }
             }
         }
