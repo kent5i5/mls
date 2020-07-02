@@ -37,7 +37,8 @@ pipeline {
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]){
                     // sh '''
                     // docker image ls'''
-
+                    sh '''
+                    sudo usermod -aG docker jenkins'''
                     sh '''
                     docker build -t yinkin/mls:$BUILD_ID .'''
                 }
