@@ -22,6 +22,7 @@ pipeline {
         stage('Build image') {
             steps {
                 // sh 'docker image ls'  
+                sh 'ls'
                 sh 'git clone https://github.com/kent5i5/mls.git'
                 sh 'cd mls'
                 sh '''docker build -tag mls:latest .
