@@ -26,9 +26,10 @@ pipeline {
                 sh 'cd ..'
                 //sh 'git clone https://github.com/kent5i5/mls.git'
                 sh 'cd mls'
+                sh 'docker image ls'
                 sh '''docker build -tag mls:latest .
                 '''
-                sh 'docker image ls'
+                
                 
                 script {
                     docker.build registry + ":$BUILD_NUMBER"
