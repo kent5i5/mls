@@ -38,8 +38,6 @@ pipeline {
                     // sh '''
                     // docker image ls'''
                     sh '''
-                    sudo usermod -aG docker jenkins'''
-                    sh '''
                     docker build -t yinkin/mls:$BUILD_ID .'''
                 }
             }
