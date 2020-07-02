@@ -24,9 +24,10 @@ pipeline {
                 // sh 'docker image ls'  
                 sh 'ls'
                 sh 'cd ..'
+                sh 'docker image ls'
                 //sh 'git clone https://github.com/kent5i5/mls.git'
                 sh 'cd mls'
-                sh 'docker image ls'
+                
                 sh '''docker build -tag mls:latest .
                 '''
                 
