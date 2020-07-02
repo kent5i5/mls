@@ -21,9 +21,9 @@ pipeline {
 
         stage('Build image') {
             steps {
+                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']])
                 // sh 'docker image ls'  
                 sh 'ls'
-                sh 'cd ..'
                 sh 'docker image ls'
                 //sh 'git clone https://github.com/kent5i5/mls.git'
                 sh 'cd mls'
