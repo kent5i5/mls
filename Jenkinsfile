@@ -61,7 +61,7 @@ pipeline {
             steps{
                     sh 'ls -l'
                     //sh 'kubectl config use-context arn:aws:eks:us-west-2:168180329753:cluster/capstonecluster' 
-                    sh 'kubectl apply -f blue-green-service.json'
+                    sh 'kubectl apply -f ./blue-green-service.json'
                     sh 'kubectl apply -f ./blue/blue-controller.json'
             }
         }
