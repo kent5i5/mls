@@ -45,7 +45,10 @@ pipeline {
 
         stage('Push image') {
             steps {
-                sh 'docker push yinkin/mls:latest'
+                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]){
+                 
+                    sh 'docker push yinkin/mls:latest'
+                }
             }
         }
 
