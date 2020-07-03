@@ -21,14 +21,6 @@ pipeline {
 
         stage('Build image') {
             steps { 
-                // sh 'ls'
-                // sh 'docker image ls'
-                // sh 'git clone https://github.com/kent5i5/mls.git'
-                // sh 'cd mls'
-                
-                // sh '''docker build -tag mls:latest .
-                // '''
-
 
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]){
                     // sh '''
@@ -42,7 +34,7 @@ pipeline {
         stage('Push image') {
             steps {
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]){
-                 
+                    sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
                     sh 'docker push yinkin/mls:$BUILD_ID'
                 }
             }
