@@ -22,7 +22,7 @@
              "containers":[
                 {
                    "name":"blue",
-                   "image":"yinkin/mls",
+                   "image":"andresaaap/testblueimage",
                    "ports":[
                       {
                          "name":"http-server",
