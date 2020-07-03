@@ -44,18 +44,26 @@ pipeline {
             steps{
                 sh 'eksctl version'
                 sh 'kubectl config set-cluster arn:aws:eks:us-west-2:168180329753:cluster/capstonecluster'
-                
+                sh 'kubectl config use-context arn:aws:eks:us-west-2:168180329753:cluster/capstonecluster' 
             }
         }
 
-        stage('Deploy container') {
+        stage('Deploy blue container') {
             steps{
                 withAWS(region:'us-west-2', credentials:'aws-static') {
                     sh 'ls -l'
-                
-                    sh 'kubectl config use-context arn:aws:eks:us-west-2:168180329753:cluster/capstonecluster' 
-                    //sh 'kubectl apply -f ./blue-green-service.json'
-                    //sh 'kubectl apply -f ./blue/blue-controller.json'
+=
+                    sh 'kubectl apply -f ./blue-green-service.json'
+                    sh 'kubectl apply -f ./blue-controller.json'
+                }
+            }
+        }
+
+        stage('Switch green container') {
+            steps{
+                withAWS(region:'us-west-2', credentials:'aws-static') {
+
+                    sh 'kubectl apply -f ./green-controller.json'
                 }
             }
         }
