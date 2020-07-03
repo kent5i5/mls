@@ -59,7 +59,7 @@ pipeline {
 
         stage('Deploy container') {
             steps{
-                withAWS(region:'us-east-1', credentials:'aws-static') {
+                withAWS(region:'us-west-2', credentials:'aws-static') {
                     sh 'ls -l'
                 
                     sh 'kubectl config use-context arn:aws:eks:us-west-2:168180329753:cluster/capstonecluster' 
