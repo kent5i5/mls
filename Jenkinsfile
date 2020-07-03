@@ -1,8 +1,5 @@
 pipeline {
-    // environment {
-    //     registry = "yinkin/udacity"
-    //     registryCredential = 'dockerhub'
-    // }
+
     agent any
     stages {
         stage("Lint JAVA"){
