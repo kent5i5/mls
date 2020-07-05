@@ -8,19 +8,19 @@ pipeline {
             }
         }
 
-        stage('build') {
-            steps {
-                sh 'mvn --version'
+        // stage('build') {
+        //     steps {
+        //         sh 'mvn --version'
                
-            }
-        }
+        //     }
+        // }
 
         stage('Build image') {
             steps { 
 
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]){
                     sh '''
-                    docker image ls'''
+                    docker image ls '''
                     sh '''
                     docker build -t yinkin/mls:$BUILD_ID .'''
                 }
