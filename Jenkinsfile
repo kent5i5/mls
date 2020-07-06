@@ -45,7 +45,7 @@ pipeline {
                 sh 'eksctl version'
                 sh 'kubectl config set-cluster arn:aws:eks:us-west-2:168180329753:cluster/capstonecluster'
                 sh 'kubectl config get-contexts'
-                sh 'kubectl config use-context example-poc' 
+                sh 'kubectl config use-context example-poc --cluster=arn:aws:eks:us-west-2:168180329753:cluster/capstonecluster' 
             }
         }
 
