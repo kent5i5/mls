@@ -54,6 +54,8 @@ pipeline {
                 //withAWS(region:'us-west-2', credentials:'aws-static') {
                     sh 'ls -l'
                     //sh 'kubectl apply -f ./blue-green-service.json'
+                sh 'kubectl config use-context arn:aws:eks:us-west-2:168180329753:cluster/capstonecluster --cluster=arn:aws:eks:us-west-2:168180329753:cluster/capstonecluster' 
+         
                 sh 'kubectl apply -f ./blue/blue-controller.json'
                 //}
             }
