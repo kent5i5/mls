@@ -47,7 +47,7 @@ pipeline {
                 sh 'eksctl version'
                 sh 'kubectl config set-context arn:aws:eks:us-west-2:168180329753:cluster/capstonecluster --cluster=arn:aws:eks:us-west-2:168180329753:cluster/capstonecluster'
                 sh 'kubectl config get-contexts'
-                sh 'kubectl config use-context arn:aws:eks:us-west-2:168180329753:cluster/capstonecluster --cluster=arn:aws:eks:us-west-2:168180329753:cluster/capstonecluster' 
+                sh 'kubectl config use-context arn:aws:eks:us-west-2:168180329753:cluster/capstonecluster' 
             }
         }
 
