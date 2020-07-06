@@ -57,7 +57,7 @@ pipeline {
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]){
 
                     sh 'ls -l'
-                    //sh 'kubectl apply -f ./blue-green-service.json'
+                    sh 'kubectl create-f ./blue-green-service.json'
                     sh 'kubectl get all' 
 
                     sh 'kubectl apply -f ./blue/blue-controller.json'
