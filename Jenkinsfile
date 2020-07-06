@@ -53,7 +53,7 @@ pipeline {
             steps{
                 withAWS(region:'us-west-2', credentials:'aws-static') {
                     sh 'ls -l'
-                    sh 'kubectl apply -f ./blue-green-service.json'
+                    //sh 'kubectl apply -f ./blue-green-service.json'
                     sh 'kubectl apply -f ./blue/blue-controller.json'
                 }
             }
