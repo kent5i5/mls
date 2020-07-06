@@ -54,11 +54,14 @@ pipeline {
         stage('Deploy blue container') {
             steps{
                 //withAWS(region:'us-west-2', credentials:'aws-static') {
+                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]){
+
                     sh 'ls -l'
                     //sh 'kubectl apply -f ./blue-green-service.json'
-                sh 'kubectl get all' 
+                    sh 'kubectl get all' 
 
-                sh 'kubectl apply -f ./blue/blue-controller.json'
+                    sh 'kubectl apply -f ./blue/blue-controller.json'
+                }
                 //}
             }
         }
